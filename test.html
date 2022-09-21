@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganteng</title>
+</head>
+<style>
+    .body{
+        
+    }
+</style>
+<body>
+    <h1>Punny Web</h1>
+    <p>Website akan segera dapat diakses lengkap</p>
+    <p>Pada : 10/10/2021</p>
+    <p>Now : <span id="now"></span></p>
+    <input id="user_email" placeholder="name@example.com"></input>
+    <br><br>
+    <button onclick="" id="notif">Get Notifications</button>
+
+    <script>
+        let tanggal_hari_ini = new Date(Date.now()),
+            now = document.getElementById("now")
+        now.innerHTML = tanggal_hari_ini.toLocaleDateString()
+    </script>
+    <script>
+        let notif = document.getElementById("notif")
+        notif.onclick = function(){
+            let user_email = document.getElementById("user_email").value
+            alert("Tapi boong " + "Hayuk!!!!")
+        }
+    </script>
+</body>
+</html>
