@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+    <style>
+        .color{
+            background-color: coral;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1" cellspacing="1" width="30%" height="230em">
+        <tr class="color">
+            <th>BMI</th>
+            <th>Kategori</th>
+        </tr>
+        <tr>
+            <th>< 15</th>
+            <td>&nbsp;&nbsp;Berat badan sangat kurang</td>
+        </tr>
+        <tr>
+            <th>15 - 18.49</th>
+            <td>&nbsp;&nbsp;Berat badan kurang<br>&nbsp;&nbsp;(Underweight)</td>
+        </tr>
+        <tr>
+            <th>18.5 - 23.99</th>
+            <td>&nbsp;&nbsp;Normal</td>
+        </tr>
+        <tr>
+            <th>24 - 29</th>
+            <td>&nbsp;&nbsp;Kelebihan berat badan<br>&nbsp;&nbsp;(Overweight)</td>
+        </tr>
+        <tr>
+            <th>> 29</th>
+            <td>&nbsp;&nbsp;Obesitas</td>
+        </tr>
+    </table>
+    <br><br><br>
+
+    <form action="#">
+        Masukkan Tinggi Badan (cm) : <input type="text" id="tb">
+        <br><br>
+        Masukkan Berat Badan(kg) : <input type="text" id="bb">
+        <br><br>
+        <input type="button" value="Hitung" onclick="data()">
+        <input type="reset" value="Reset">
+        <br><br><br>
+        <p id="bmi"></p>
+        <p id="keterangan"></p>
+    </form>
+
+    <script>
+        var tinggi, berat, bmi, keterangan;
+        function data() {
+            tinggi = parseFloat(document.getElementById("tb").value);
+            tinggi /= 100;
+            berat = parseFloat(document.getElementById("bb").value);
+            bmi = berat / (tinggi * tinggi);
+
+            if(bmi > 27) {
+                keterangan = "Obesitas";
+            }
+            else if(bmi > 24 && bmi < 29) {
+                keterangan = "Kelebihan berat badan (OverWeight)";
+            }
+            else if(bmi > 18.5 && bmi < 23.99) {
+                keterangan = "Normal";
+            }
+            else if(bmi > 15 && bmi < 18.49) {
+                keterangan = "Berat badan kurang (Underweight)";
+            }
+            else {
+                keterangan = "Berat badan sangat kurang";
+            }
+        
+            document.getElementById("bmi").innerHTML = "Hasil Perhitungan BMI = " + bmi.toFixed(1);
+            document.getElementById("keterangan").innerHTML = "Keterangan = " + keterangan;
+        }
+    </script>
+</body>
+</html>
